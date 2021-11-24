@@ -3,6 +3,6 @@ import $ from 'jquery'
 
 // 2.实现隔行变色的效果
 $(function() {
-    $('li:odd').css('background', 'green')
+    $('li:odd').css('background', 'yellow')
     $('li:even').css('background', 'skyblue')
 })

@@ -1,5 +1,7 @@
-1.安装webpack包 npm install webpack@5.5.1 webpack-cli@4.2.0 -D
+1.初始化包管理配置文件 npm init -y
 
-2.在package.json文件修改"scripts": {"dev":"webpack"}
+2.安装webpack包 npm install webpack@5.5.1 webpack-cli@4.2.0 -D
 
-3.执行npm run dev 
+3.在package.json文件修改"scripts": {"dev":"webpack"}
+
+4.执行npm run dev 
