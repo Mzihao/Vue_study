@@ -34,7 +34,7 @@ eval("var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!\n * jQ
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n// 1.使用ES6模块化的语法导入jquery\n\n\n// 2.实现隔行变色的效果\njquery__WEBPACK_IMPORTED_MODULE_0___default()(function() {\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('li:odd').css('background', 'red')\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('li:even').css('background', 'cyan')\n})\n\n//# sourceURL=webpack://day02/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n// 1.使用ES6模块化的语法导入jquery\r\n\r\n\r\n// 2.实现隔行变色的效果\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()(function() {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('li:odd').css('background', 'green')\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('li:even').css('background', 'skyblue')\r\n})\n\n//# sourceURL=webpack://day02/./src/index.js?");
 
 /***/ })
 
