@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+</body>
+    <div id="app">
+        <p v-text="username"></p>
+        <p v-text="age">30</p>
+        <p>--------------------</p>
+        <p>name:{{ username }}</p>
+        <p>age:{{ age }}</p>
+        <p>--------------------</p>
+        <p>{{desc}}</p>
+        <p v-html='desc'></p>
+    </div>
+
+    <script src='./lib/vue.js'></script>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                username: '子豪',
+                age: 23,
+                desc: '<i style="color: pink;"><哈哈哈/i>'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+</body>
+    <!-- 2.声明要被vue所控制的DOM区域  -->
+    <div id="app">name:{{username}}|age:{{age}}</div>
+
+    <!-- 1.导入vue的脚本文件  -->
+    <script src='./lib/vue.js'></script>
+
+    <!-- 3.创建vue的实例对象 -->
+    <script>
+        const vm = new Vue({
+            //3.1 使用el属性，指定vue要控制的区域
+            el: '#app',
+            //3.2 数据源
+            data: {
+                username: '子豪',
+                age: 23,
+            }
+        })
+    </script>
+</body>
+</html>
