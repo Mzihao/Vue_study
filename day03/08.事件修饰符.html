@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+    <style>
+        .inner{
+            height: 150px;
+            background-color : darkcyan;
+        }
+    
+        .outer{
+            padding: 40px;
+            background-color : green;
+        }
+</style>
+ 
+    <script src="./lib/vue.js"></script>
+ 
+</head>
+ 
+<body>
+ 
+    <div id="app" class="inner" @click="divHandler">
+        <!--
+              点击按钮的时候 先触发弹框btn 再触发弹div 因为按钮是在div里面的 
+              这种就叫做冒泡事件,如果加上.stop 就是禁止冒泡事件的发生 执行效果是:
+              点击按钮后 弹出btn div不弹出了
+        -->
+        <input type="button" value="戳它" @click.stop="bthHandler">
+        <br>
+        <!-- 禁止事件的默认行为 此处就是禁止了超链接跳转标签的作用 -->
+        <a href="http://www.baidu.com" @click.prevent="aHandler">百度</a>
+    </div>
+ 
+    <br>
+ 
+    <!--
+        点击按钮的时候 先触发弹框btn 再触发弹div 因为按钮是在div里面的 
+        这种就叫做冒泡事件,如果加上.capture  执行效果是:
+        点击按钮后 先弹出div 后弹出btn 与冒泡事件相反
+    -->
+    <div id="app2" class="inner" @click.capture="divHandler">
+        <input type="button" value="戳它" @click="bthHandler">
+        <br>
+    </div>
+ 
+    <br>
+ 
+    <!--
+        实现 点按钮只触发自己的事件 不触发弹弹div 只有点击div才触发自己的弹出div的事件
+        .self属性就是只触发自己的事件
+        注意这里 .self如果设置在btn上 还会触发弹div 因为btn本身就触发了自己弹出btn
+        而弹出div 是属于冒泡被动触发的 所以不要歧义理解
+    -->
+    <div id="app3" class="inner" @click.self="divHandler">
+        <input type="button" value="戳它" @click="bthHandler">
+        <br>
+    </div>
+ 
+    <br>
+ 
+    <!-- 事件可以连着写的.prevent.once 事件只触发一次 禁止点击的第一次 但第二次以后还是可以触发 -->
+    <div id="app4" class="inner" @click.self="divHandler">
+        <a href="http://www.baidu.com" @click.prevent.once="aHandler">百度</a>
+        <br>
+    </div>
+ 
+    <br>
+ 
+    <!-- .self和.stop的区别 
+        1:这样写 点击按钮 弹btn 触发inner弹 div 还会触发outer 弹出div
+    -->
+    <div id="app5" class="outer" @click="divHandler">
+        <div class="inner" @click.self="divHandler">
+            <input type="button" value="戳它" @click="bthHandler">
+        </div>
+    </div>
+    <br>
+    <!--2:这样写 点击按钮 弹btn  -->
+    <div id="app6" class="outer" @click="divHandler">
+        <div class="inner" @click="divHandler">
+            <input type="button" value="戳它" @click.stop="bthHandler">
+        </div>
+    </div>
+ 
+ 
+ 
+    <script>
+ 
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '欢迎学习vue'
+            },
+            methods: {
+                divHandler() {
+                    alert('div');
+                },
+                bthHandler() {
+                    alert('btn');
+                },
+                aHandler() {
+                    alert('href')
+                }
+            }
+        });
+ 
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {
+                msg: '欢迎学习vue'
+            },
+            methods: {
+                divHandler() {
+                    alert('div');
+                },
+                bthHandler() {
+                    alert('btn');
+                }
+            }
+        });
+ 
+        var vm3 = new Vue({
+            el: '#app3',
+            data: {
+                msg: '欢迎学习vue'
+            },
+            methods: {
+                divHandler() {
+                    alert('div');
+                },
+                bthHandler() {
+                    alert('btn');
+                }
+            }
+        });
+ 
+        var vm4 = new Vue({
+            el: '#app4',
+            data: {
+                msg: '欢迎学习vue'
+            },
+            methods: {
+                aHandler() {
+                    alert('href')
+                }
+            }
+        });
+ 
+        var vm5 = new Vue({
+            el: '#app5',
+            data: {
+                msg: '欢迎学习vue'
+            },
+            methods: {
+                divHandler() {
+                    alert('div');
+                },
+                bthHandler() {
+                    alert('btn');
+                }
+            }
+        });
+ 
+        var vm6 = new Vue({
+            el: '#app6',
+            data: {
+                msg: '欢迎学习vue'
+            },
+            methods: {
+                divHandler() {
+                    alert('div');
+                },
+                bthHandler() {
+                    alert('btn');
+                }
+            }
+        });
+ 
+ 
+ 
+    </script>
+ 
+</body>
+ 
+</html>

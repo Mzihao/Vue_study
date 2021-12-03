@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- v-model只能配合表单元素使用 -->
+    <div id="app">
+        <p>用户名：{{username}}</p>
+        <input type="text" v-model="username">
+        <hr>
+        <p>选中的省份是：{{province}}</p>
+        <select v-model="province">
+            <option value="">请选择</option>
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+            <option value="3">深圳</option>
+            <option value="4">广州</option>
+        </select>
+
+        <script src="./lib/vue.js"></script>
+        <script>
+            const vm = new Vue({
+            el:'#app',
+            data:{
+                username: 'Martin',
+                province: '',
+            },
+        })
+        </script>
+    </div>
+</body>
+</html>
