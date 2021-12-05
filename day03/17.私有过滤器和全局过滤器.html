@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p :title="info | capitalize">{{message | capitalize}}</p>
+    </div>
+
+    <div id="app2">
+        <p :title="info | capitalize">{{message | capitalize}}</p>
+    </div>
+
+    <script src="./lib/vue.js"></script>
+    <script>
+        Vue.filter('capitalize', (str) => {
+            return str.charAt(0).toUpperCase() + str.slice(1)
+        })
+    </script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: "hello vue.js",
+                info: "title info",
+            },
+            filters: {
+                capitalize(str) {
+                    return str.charAt(0).toUpperCase() + str.slice(1)
+                }
+            }
+        })
+    </script>
+
+<script>
+    const vm2 = new Vue({
+        el: '#app2',
+        data: {
+            message: "hello vue.js",
+            info: "title info",
+        },
+        filters: {
+
+        }
+    })
+</script>
+
+</body>
+
+</html>

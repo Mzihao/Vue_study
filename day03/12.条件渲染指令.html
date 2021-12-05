@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag = !flag">Toggle Flag</button>
+
+        <!-- v-if动态创建和移除 渲染开销大 -->
+        <p v-if="flag">请求成功 --- 被v-if控制</p>
+
+        <!-- v-show控制样式 -->
+        <p v-show="!flag">请求成功 --- 被v-show控制</p>
+    </div>
+        <script src="./lib/vue.js"></script>
+        <script>
+            const vm = new Vue({
+            el:'#app',
+            data:{
+                // falg 用来控制元素的显示与隐藏
+                // 值为 true 时显示元素
+                flag: true,
+            },
+        })
+        </script>
+</body>
+</html>

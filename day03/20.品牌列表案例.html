@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+    <style>
+        :root {
+            font-size: 13px;
+        }
+
+        body {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="card">
+            <h5 class="card-header">添加品牌</h5>
+            <div class="card-body">
+                <form class="form-inline" @submit.prevent>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">品牌名称</div>
+                        </div>
+                        <!-- 文本输入框 -->
+                        <input type="text" class="form-control" v-model.trim="brandname" @keyup.esc="brandname=''">
+                        <button type="submit" class="btn btn-primary mb-2" @click="addNewBrand">添加品牌</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-borderde table-striped mt-2">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>品牌名称</th>
+                    <th>状态</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr v-for="(item, index) in brandlist" :key="item.id">
+                    <td>{{index + 1}}</td>
+                    <td>{{item.brandname}}</td>
+                    <td>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" :id="item.id" v-model="item.state">
+                            <label class="custom-control-label" :for="item.id" v-if="item.state">已启用</label>
+                            <label class="custom-control-label" :for="item.id" v-else>已禁用</label>
+                        </div>
+    </div>
+    </td>
+    <td>{{item.addtime | dateFormat}}</td>
+    <td>
+        <a href="#" @click.prevent="removeBrand(item.id)">删除</a>
+    </td>
+    </tr>
+    </tbody>
+
+    </table>
+    </div>
+    <script src="./lib/vue.js"></script>
+    <!-- 创建全局过滤器 -->
+    <script>
+        Vue.filter("dateFormat", (dateStr) => {
+            const dt = new Date(dateStr)
+
+            const y = dt.getFullYear()
+            const m = padZero(dt.getMonth() + 1)
+            const d = padZero(dt.getDate())
+
+            const hh = padZero(dt.getHours())
+            const mm = padZero(dt.getMinutes())
+            const ss = padZero(dt.getSeconds())
+
+            return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+        })
+        function padZero(n) {
+            return n > 9 ? n : '0' + n
+        }
+    </script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                brandname: '',
+                brandlist: [
+                    { id: 1, brandname: '宝马', state: true, addtime: new Date() },
+                    { id: 2, brandname: '奔驰', state: false, addtime: new Date() },
+                    { id: 3, brandname: '奥迪', state: true, addtime: new Date() },
+                    { id: 4, brandname: '保时捷', state: true, addtime: new Date() },
+                ],
+                nextId: 5,
+            },
+            methods: {
+                addNewBrand() {
+                    if (!this.brandname) return alert('品牌名不能为空！')
+                    this.brandlist.push({ id: this.nextId, brandname: this.brandname, state: true, addtime: new Date() })
+                    this.nextId++
+                    this.brandname = ''
+                },
+                removeBrand(id) {
+                    // for x in brandlist
+                    this.brandlist = this.brandlist.filter((x) => x.id != id)
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 添加用户的区域 -->
+        <div>
+            <input type="text" v-model="name">
+            <button @click="addNewUser">添加</button>
+        </div>
+        <!-- 用户列表区域 -->
+        <ul>
+            <li v-for="(user,index) in list" :key="user.id">
+                <input type="checkbox">
+                姓名:{{user.name}}
+            </li>
+        </ul>
+    </div>
+    <script src="./lib/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: 1, name: 'martin' },
+                    { id: 2, name: 'rachel' },
+                ],
+                name: "sky",
+                newId: 3,
+            },
+            methods: {
+                addNewUser(e) {
+                    // this.list.unshift({ id: this.newId++, name: this.name })
+                    this.list.push({ id: this.newId++, name: this.name })
+                    this.name = ''
+                    // this.newId += 1
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>
