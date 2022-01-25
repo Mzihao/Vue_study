@@ -1,0 +1,6 @@
+src:
+    asstes 存放项目静态文件
+    components 存放自定义组件
+    App.vue 项目根组件
+    index.css 项目全局样式表
+    main.js 项目打包入口
