@@ -3,7 +3,9 @@ import { createApp } from 'vue'
 // 导入待渲染的App.vue组件
 // import App from './App.vue'
 // import App from './components/03.style/App.vue'
-import App from './components/04.props/App.vue'
+// import App from './components/04.props/App.vue'
+// import App from './components/05.class&style/App.vue'
+import App from './components/App.vue'
 
 // import './index.css'
 
