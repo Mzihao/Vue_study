@@ -5,7 +5,9 @@ import { createApp } from 'vue'
 // import App from './components/03.style/App.vue'
 // import App from './components/04.props/App.vue'
 // import App from './components/05.class&style/App.vue'
-import App from './components/App.vue'
+// import App from './components/06.MyHeader/App.vue'
+// import App from './components/07.Count/App.vue'
+import App from './components/08.computed/App.vue'
 
 // import './index.css'
 
