@@ -1,2 +1,7 @@
 npm run dev —— cross-env: Permission denied:
 npm rebuild 
+
+todos:
+1. npm init vite-app todos  # 初始化vite项目
+2. npm install  # 安装依赖
+3. npm i less -D  # 安装less语法相关依赖
