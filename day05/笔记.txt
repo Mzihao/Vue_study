@@ -1,0 +1,2 @@
+npm run dev —— cross-env: Permission denied:
+npm rebuild 

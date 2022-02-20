@@ -24,6 +24,8 @@
             methods: {
                 addCount(e){
                     const nowBgColor = e.target.style.backgroundColor
+                    console.log(nowBgColor)
+                    // e.target.style.backgroundColor = (nowBgColor === 'pink' ? '' : 'pink')
                     e.target.style.backgroundColor = nowBgColor === 'pink' ? '' : 'pink'
                     this.count += 1
                 }

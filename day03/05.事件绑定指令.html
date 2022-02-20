@@ -11,7 +11,7 @@
     <div id="app">
         <h3>count的值为：{{count}}</h3>
         <!-- <button v-on:click="addCount">+1</button> -->
-        <!-- <button @click="addCount">+1</button> -->
+        <button @click="addCount">+1</button>
         <!-- <button v-on:click="count += 1">+1</button> -->
         <button @click="count += 1">+1</button>
     </div>
@@ -25,9 +25,9 @@
                 count: 0,
             },
             methods: {
-                // addCount(){
-                //     this.count += 1
-                // }
+                addCount(){
+                    this.count += 1
+                }
             },
         })
     </script>
